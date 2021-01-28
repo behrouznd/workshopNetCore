@@ -17,13 +17,14 @@ namespace Workshop2.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
-
+        public DbSet<LogsData> logsDatas { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Teacher>().ToTable("Teacher");
             modelBuilder.Entity<Student>().ToTable("Student");
             modelBuilder.Entity<Course>().ToTable("Course");
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
+            modelBuilder.Entity<LogsData>().ToTable("LogsData");
         }
 
     }
