@@ -35,6 +35,8 @@ namespace Workshop2.Controllers
             studentRepository.updateStudent(student);
             return RedirectToAction("Index");
 
+
+
         }
 
         public IActionResult Create()
