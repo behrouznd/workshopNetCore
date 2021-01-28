@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,23 @@ namespace Workshop2.Infrastructures
 
         public LogMiddleware(RequestDelegate next) => nextDelegate = next;
 
-        public async Task Invoke(HttpContext httpContext)
+        public async Task Invoke(HttpContext httpContext, ILogRepository logRepository)
         {
-            
+       //     var controllerActionInfo = httpContext
+       //.GetEndpoint()
+       //.Metadata
+       //.GetMetadata<ControllerActionDescriptor>();
+
+            var controllerName ="";
+            var actionName = "";
+
+            string userId = httpContext.Request.Query["UserId"];
+       
+
+            logRepository.CreateLog(controllerName, actionName, userId);
+
+            await nextDelegate.Invoke(httpContext);
+
         }
 
     }
