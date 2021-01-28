@@ -57,16 +57,19 @@ namespace Workshop2
 
             
 
-
             app.UseMiddleware<LogMiddleware>();
 
-            app.Run(async (context) =>
-            {
-                if (1==2)
-                {
-                    await context.Response.WriteAsync("Access denied");
-                }
-            });
+            //app.Use(async (context, next) =>
+            //{               
+            //    await next();
+            //});
+
+            //app.Run(async context =>
+            //{
+            //    await context.Response.WriteAsync("Hello from ");
+            //});
+
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
