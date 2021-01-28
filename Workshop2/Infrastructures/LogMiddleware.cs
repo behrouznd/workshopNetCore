@@ -17,13 +17,21 @@ namespace Workshop2.Infrastructures
 
         public async Task Invoke(HttpContext httpContext, ILogRepository logRepository)
         {
-       //     var controllerActionInfo = httpContext
-       //.GetEndpoint()
-       //.Metadata
-       //.GetMetadata<ControllerActionDescriptor>();
+            //     var controllerActionInfo = httpContext
+            //.GetEndpoint()
+            //.Metadata
+            //.GetMetadata<ControllerActionDescriptor>();
+            string controllerName = "";
+            string actionName = "";
 
-            var controllerName ="";
-            var actionName = "";
+            string path = httpContext.Request.Path.Value;
+            var patharray = path.Split('/');
+            if (patharray.Length > 2)
+            {
+                controllerName = patharray[1];
+                actionName = patharray[2];
+            }
+
 
             string userId = httpContext.Request.Query["UserId"];
        
