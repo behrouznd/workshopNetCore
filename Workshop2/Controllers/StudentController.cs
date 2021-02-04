@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Workshop2.Interfaces;
 using Workshop2.Models;
 
@@ -10,10 +11,15 @@ namespace Workshop2.Controllers
 {
     public class StudentController : Controller
     {
+        
+         
         IStudentRepository studentRepository;
-        public StudentController(IStudentRepository studentRepo)
+        public StudentController(IStudentRepository studentRepo )
         {
             this.studentRepository = studentRepo;
+
+     
+
         }
         public IActionResult Index()
         {
@@ -42,6 +48,21 @@ namespace Workshop2.Controllers
         public IActionResult Create()
         {
             return View();
+
+        }
+
+        public IActionResult Delete(int id)
+        {
+            studentRepository.DeleteStudent(id);
+            return RedirectToAction("Index");
+
+        }
+
+        [HttpPost]
+        public IActionResult Add(Student  student)
+        {
+            studentRepository.CreateStudent(student);
+            return RedirectToAction("Index");
 
         }
     }

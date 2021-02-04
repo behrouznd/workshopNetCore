@@ -10,9 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using Workshop2.Data;
 using Workshop2.Infrastructures;
 using Workshop2.Interfaces;
+using Workshop2.Logger;
 using Workshop2.Repositories;
 
 namespace Workshop2
@@ -39,10 +42,11 @@ namespace Workshop2
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {     
-            
-            
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddFile(System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "logger.txt"));
+            var logger = loggerFactory.CreateLogger("FileLogger");
+             
 
             if (env.IsDevelopment())
             {

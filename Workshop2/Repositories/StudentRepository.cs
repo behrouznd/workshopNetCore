@@ -24,6 +24,16 @@ namespace Workshop2.Repositories
             Database.SaveChanges();
         }
 
+        public void DeleteStudent(int id)
+        {
+            Student student = Database.Students.Find(id);
+            if (student != null)
+            {
+                Database.Students.Remove(student);
+                Database.SaveChanges();
+            }
+        }
+
         public IEnumerable<Student> GetAllStudents()
         {
             return Database.Students;

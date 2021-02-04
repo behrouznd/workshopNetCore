@@ -1,0 +1,29 @@
+Request starting HTTP/2.0 GET https://localhost:44356/  
+Entity Framework Core 5.0.2 initialized 'SchoolContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LogsData] ([ActionName], [ControllerName], [CreDate], [UserId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [LogId]
+FROM [LogsData]
+WHERE @@ROWCOUNT = 1 AND [LogId] = scope_identity();
+Executing endpoint 'Workshop2.Controllers.HomeController.Index (Workshop2)'
+Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Workshop2.Controllers.HomeController (Workshop2).
+Executing action method Workshop2.Controllers.HomeController.Index (Workshop2) - Validation state: Valid
+Executed action method Workshop2.Controllers.HomeController.Index (Workshop2), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.17350000000000002ms.
+Executing ViewResult, running view Index.
+Executed ViewResult - view Index executed in 14.690700000000001ms.
+Executed action Workshop2.Controllers.HomeController.Index (Workshop2) in 155.2139ms
+Executed endpoint 'Workshop2.Controllers.HomeController.Index (Workshop2)'
+Request finished in 422.6675ms 200 text/html; charset=utf-8
+Request starting HTTP/2.0 GET https://localhost:44356/favicon.ico  
+Entity Framework Core 5.0.2 initialized 'SchoolContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Executed DbCommand (11ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [LogsData] ([ActionName], [ControllerName], [CreDate], [UserId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [LogId]
+FROM [LogsData]
+WHERE @@ROWCOUNT = 1 AND [LogId] = scope_identity();
+Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\b.naderi\Source\Repos\Workshop2\Workshop2\wwwroot\favicon.ico'
+Request finished in 155.1766ms 200 image/x-icon

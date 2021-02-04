@@ -10,6 +10,7 @@ namespace Workshop2.Interfaces
     {
         void CreateStudent(Student student);
         void updateStudent(Student student);
+        void DeleteStudent(int id);
         IEnumerable<Student> SearchStudent(Func<Student , bool> func);
         IEnumerable<Student> GetAllStudents();
 
